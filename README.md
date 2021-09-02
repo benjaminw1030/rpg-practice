@@ -4,6 +4,7 @@
     Map
 
 2. Player
+    level
     experience
     health
     mana

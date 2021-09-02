@@ -1,4 +1,3 @@
-//import Template from './../src/js/template.js';
 import Enemy from '../src/js/enemy.js';
 
 describe('Enemy', () => {
