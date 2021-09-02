@@ -12,7 +12,6 @@ export default class Enemy {
     player.playerDeathCheck();
   }
   deathCheck(player, location) {
-    console.log(location.items);
     if (this.hp <= 0) {
       player.exp += this.exp;
       if (this.item != undefined) {
