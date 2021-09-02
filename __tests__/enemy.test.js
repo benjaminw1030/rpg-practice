@@ -12,7 +12,7 @@ describe('Enemy', () => {
   test('It should create an enemy object', () => {
     expect(enemy.health).toEqual(5);
     expect(enemy.attack).toEqual(2);
-    expect(enemy.defence).toEqual(1);
+    expect(enemy.defense).toEqual(1);
     expect(enemy.experience).toEqual(3);
     expect(enemy.item).toEqual("sword");
   });
