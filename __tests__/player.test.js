@@ -6,10 +6,12 @@ describe('Player', () => {
 
   let enemy;
   let player;
+  let location;
 
   beforeEach(() => {
     enemy = new Enemy("goblin", 5, 2, 1, 3, "sword");
     player = new Player("Steve", 5, 2, 1, 3, 4, 1, "bow");
+    location = new Location("corridor", "You are in a dark, musty corridor running north to south.", player, enemy, ["leather armor"]);
   });
 
   test('It should create an player object', () => {
