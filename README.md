@@ -13,7 +13,6 @@
 
 3. Enemy
     health
-    mana
     attack
     defense
     experience
@@ -24,5 +23,5 @@
     armor
     healthPotion
     manaPotion
-    
+
 5. Map object for areas.
