@@ -1,19 +1,38 @@
 import Enemy from '../src/js/enemy.js';
+import Player from '../src/js/player.js';
+import Location from '../src/js/location.js';
 
 describe('Enemy', () => {
 
+  let player;
   let enemy;
 
   beforeEach(() => {
-    enemy = new Enemy(5, 2, 1, 3, "sword");
+    player = new Player("Steve", 5, 2, 1, 3, 4, 1, "bow");
+    enemy = new Enemy("goblin", 5, 2, 1, 3, "sword");
   });
 
   test('It should create an enemy object', () => {
-    expect(enemy.health).toEqual(5);
-    expect(enemy.attack).toEqual(2);
-    expect(enemy.defense).toEqual(1);
-    expect(enemy.experience).toEqual(3);
+    expect(enemy.name).toEqual("goblin");
+    expect(enemy.hp).toEqual(5);
+    expect(enemy.atk).toEqual(2);
+    expect(enemy.def).toEqual(1);
+    expect(enemy.exp).toEqual(3);
     expect(enemy.item).toEqual("sword");
+  });
+  test('It should let an enemy object lower the health of an player', () => {
+    enemy.attack(player);
+    expect(player.hp).toEqual(4);
+  });
+  test('should give experience to the player and delete the enemy object on death', () => {
+    enemy.hp = 0;
+    enemy.deathCheck(player);
+    expect(player.exp).toEqual(6);
+    expect(enemy.name).toBeUndefined();
+  });
+
+  test('should keeps the enemy alive upon detchCheck if health is more than 0', () => {
+    expect(enemy.deathCheck(player)).toBeFalsy();
   });
 });
 
