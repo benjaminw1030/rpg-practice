@@ -9,6 +9,7 @@ export default class Enemy {
   }
   attack(player) {
     player.hp -= (this.atk - player.def);
+    player.playerDeathCheck();
   }
   deathCheck(player, location) {
     console.log(location.items);

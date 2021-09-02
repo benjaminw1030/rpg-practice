@@ -1,6 +1,7 @@
 import Player from '../src/js/player.js';
 import Enemy from '../src/js/enemy.js';
 import Location from '../src/js/location.js';
+import Inventory from '../src/js/inventory.js';
 
 describe('Player', () => {
 
@@ -25,8 +26,8 @@ describe('Player', () => {
     expect(player.inv).toEqual("bow");
   });
 
-  test('It should let an player object lower the health of an enemy object', () => {
-    player.attack(enemy);
+  test('It should let an player object lower the health of an enemy object and peform a death check', () => {
+    player.attack(enemy, location);
     expect(enemy.hp).toEqual(4);
   });
 
@@ -49,10 +50,14 @@ describe('Player', () => {
 
   test('If player dies deathCheck returns true', () => {
     player.hp = -1;
-    expect(player.deathCheck()).toBeTruthy();
+    expect(player.playerDeathCheck()).toBeTruthy();
   });
 
   test('If player still alive deathCheck returns false', () => {
-    expect(player.deathCheck()).toBeFalsy();
+    expect(player.playerDeathCheck()).toBeFalsy();
+  });
+
+  test('Player can pick up items off the ground and add it to their inventory', () => {
+    
   });
 });

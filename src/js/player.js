@@ -10,8 +10,9 @@ export default class Player {
     this.inv = inv;
   }
 
-  attack(enemy) {
+  attack(enemy, location) {
     enemy.hp -= (this.atk - enemy.def);
+    enemy.deathCheck(this, location);
   }
 
   lvlCheck() {
@@ -28,8 +29,9 @@ export default class Player {
     }
   }
 
-  deathCheck() {
+  playerDeathCheck() {
     if (this.hp <= 0) {
+      delete this.name;
       return true
     } else {
       return false
